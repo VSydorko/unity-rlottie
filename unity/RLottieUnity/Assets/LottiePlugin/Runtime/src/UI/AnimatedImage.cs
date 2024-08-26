@@ -28,6 +28,8 @@ namespace LottiePlugin.UI
         private Coroutine _renderLottieAnimationCoroutine;
         private WaitForEndOfFrame _waitForEndOfFrame;
 
+        public System.Action onAnimationStopped;
+
         private void Awake()
         {
             Transform = transform;
@@ -77,6 +79,8 @@ namespace LottiePlugin.UI
             }
             _lottieAnimation.Stop();
             _lottieAnimation.DrawOneFrame((int)_lottieAnimation.TotalFramesCount - 1);
+
+            onAnimationStopped?.Invoke();
         }
         internal LottieAnimation CreateIfNeededAndReturnLottieAnimation()
         {
