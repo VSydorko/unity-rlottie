@@ -76,7 +76,7 @@ namespace LottiePlugin.UI
                 _renderLottieAnimationCoroutine = null;
             }
             _lottieAnimation.Stop();
-            _lottieAnimation.DrawOneFrame(0);
+            _lottieAnimation.DrawOneFrame((int)_lottieAnimation.TotalFramesCount - 1);
         }
         internal LottieAnimation CreateIfNeededAndReturnLottieAnimation()
         {
